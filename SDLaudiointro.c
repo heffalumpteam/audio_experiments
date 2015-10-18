@@ -10,7 +10,7 @@ Uint32 callbackfunc(Uint32 interval, void* param);
 int main(int argc, char const *argv[])
 {
 	Mix_Chunk* sample = NULL;
-	Mix_Chunk* sample2 = NULL;	/* Array of samples, all initialized to NULL pointers */
+	Mix_Chunk* sample2 = NULL;
 	_Bool quit = false; /* Global quit flag */
 	SDL_Event event;
 	SDL_TimerID timer;
