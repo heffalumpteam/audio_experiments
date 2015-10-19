@@ -2,9 +2,12 @@
 /* test*/
 #ifdef __APPLE__
 	#include <SDL2_mixer/SDL_mixer.h>
-#elif __LINUX__
+#elif __linux__
+	#include <SDL2/SDL_mixer.h>
+#elif __unix__
 	#include <SDL2/SDL_mixer.h>
 #endif
+/*http://stackoverflow.com/questions/5919996/how-to-detect-reliably-mac-os-x-ios-linux-windows-in-c-preprocessor*/
 
 #include "audio.h"
 
