@@ -13,7 +13,8 @@
 
 #define SAMPLERATE 44100
 #define NUMAUDIOCHANNELS 2
-#define BUFFSIZE 2048
+/*#define BUFFSIZE 2048*/
+#define BUFFSIZE 1024
 
 Mix_Chunk *drum1_sound = NULL;
 
