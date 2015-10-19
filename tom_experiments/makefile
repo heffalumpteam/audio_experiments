@@ -7,14 +7,14 @@ macLIBS = -lm -lSDL2 -lSDL2_image -lSDL2_mixer
 
 CFILES = main.c graphics.c events.c audio.c
 
-prog : $(CFILES)
-	gcc $(CFILES) -o $(PROGRAMNAME) $(CFLAGS) $(LIBS)
+prog :
+
 
 linux : $(CFILES)
 	gcc $(CFILES) -o $(PROGRAMNAME) $(CFLAGS) $(linuxLIBS)
 
 mac : $(CFILES)
-	gcc $(CFILES) -o $(PROGRAMNAME) $(CFLAGS) $(LIBS)
+	gcc $(CFILES) -o $(PROGRAMNAME) $(CFLAGS) $(macLIBS)
 
 run: $(PROGRAMNAME)
 	./$(PROGRAMNAME)
