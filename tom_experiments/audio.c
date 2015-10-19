@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*make a change*/
+
 #ifdef __APPLE__
 	#include <SDL2_mixer/SDL_mixer.h>
 #elif __LINUX__
