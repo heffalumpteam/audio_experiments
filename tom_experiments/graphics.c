@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
 #ifdef __APPLE__
-	#include <SDL2_image/SDL_mixer.h>
+	#include <SDL2_image/SDL_image.h>
 #elif __LINUX__
 	#include <SDL2/SDL_image.h>
 #endif
