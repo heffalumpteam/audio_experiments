@@ -1,5 +1,10 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#ifdef __APPLE__
+	#include <SDL2_image/SDL_mixer.h>
+#elif __LINUX__
+	#include <SDL2/SDL_image.h>
+#endif
+
 
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;

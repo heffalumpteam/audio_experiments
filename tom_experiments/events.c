@@ -16,7 +16,7 @@ void events_poll(byte *running){
       *running = 0;
       break;
     case drums:
-      audio_play(drum1);
+      printf("Play a drum beat\n");
       break;
     default:
       printf("Unknown event\n");

@@ -32,8 +32,8 @@ int main (){
         if(beat > 4){
           beat = 1;
         }
+        audio_play();
         printf("%d\n", beat);
-        audio_play(drum1);
       }
       old_tick = new_tick;
     }
