@@ -24,7 +24,6 @@ int main (){
     if(new_tick != old_tick){
       /*new ms!*/
       if(new_tick % MS_PER_BAR == 0){
-        /*new bar!*/
         bar++;
         printf("Bar: %d\n", bar);
       }
