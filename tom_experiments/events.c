@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include "def.h"
+#include "audio.h"
 
 enum eventreturns {noaction, quit, drums};
 
@@ -15,7 +16,7 @@ void events_poll(byte *running){
       *running = 0;
       break;
     case drums:
-      /*audio_play(drums);*/
+      audio_play(drum1);
       break;
     default:
       printf("Unknown event\n");
