@@ -36,6 +36,9 @@ enum eventreturns checkEvents(void){
       case SDL_KEYDOWN:
         to_return = keydown(event);
         break;
+      case SDL_MOUSEBUTTONDOWN:
+        audio_play();
+        break;
     }
   }
 
