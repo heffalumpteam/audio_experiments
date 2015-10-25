@@ -1,0 +1,33 @@
+#include <gtk/gtk.h>
+
+GdkPixbuf *create_pixbuf(const gchar * filename);
+
+static void print_hello (void);
+
+int main (int argc, char **argv) {
+  GtkBuilder *builder;
+  GObject *window;
+  GObject *button;
+
+  gtk_init (&argc, &argv);
+
+  builder = gtk_builder_new ();
+  gtk_builder_add_from_file (builder, "ui.ui", NULL);
+
+
+  window = gtk_builder_get_object (builder, "window");
+  g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
+
+  button = gtk_builder_get_object (builder, "button1");
+  g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
+
+  g_object_unref( G_OBJECT( builder ) );
+  gtk_main ();
+
+  return 0;
+}
+
+
+static void print_hello (void){
+  g_print ("Hello World\n");
+}
