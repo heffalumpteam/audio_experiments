@@ -14,7 +14,8 @@ linuxGTK = `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0`
 macGTK = `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0`
 winGTK = `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0`
 
-
+macFRAMEWORKS = -F/Library/Frameworks -framework SDL2 -framework SDL2_mixer
+macINCLUDES = -I/Library/Frameworks/SDL2.framework/Headers -I/Library/Frameworks/SDL2_mixer.framework/Headers
 
 $(NAME) :
 
@@ -22,7 +23,7 @@ linux : $(CFILES)
 	gcc $(CFILES) -o $(NAME) $(CFLAGS) $(linuxGTK) $(linuxLIBS)
 
 mac : $(CFILES)
-	gcc $(CFILES) -o $(NAME) $(CFLAGS) $(macGTK) $(macLIBS)
+	gcc $(CFILES) -o $(NAME) $(CFLAGS) $(macGTK) $(macLIBS) $(macFRAMEWORKS) $(macINCLUDES)
 
 run: $(NAME)
 	./$(NAME)
