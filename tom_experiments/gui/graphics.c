@@ -1,11 +1,12 @@
+#include <gtk/gtk.h>
+
 #include "graphics.h"
+#include "events.h"
 #include "audio.h"
 
 extern unsigned char running;
 
-static void drum1(void);
 void attachFunctions(GtkBuilder *builder);
-void quit_button(void);
 
 void graphics_init(void){
   GtkBuilder *builder;
@@ -26,21 +27,10 @@ void attachFunctions(GtkBuilder *builder){
   GObject *button;
 
   window = gtk_builder_get_object (builder, "window");
-  g_signal_connect (window, "destroy", G_CALLBACK (quit_button), NULL);
+  g_signal_connect (window, "destroy", G_CALLBACK (quitting), NULL);
 
   button = gtk_builder_get_object (builder, "button1");
   g_signal_connect (button, "clicked", G_CALLBACK (drum1), NULL);
-}
-
-static void drum1(void){
-  g_print ("drum1\n");
-  audio_play();
-}
-
-void quit_button(void){
-  running = 0;
-  audio_close();
-  gtk_main_quit();
 }
 
 void graphics_close(void){
