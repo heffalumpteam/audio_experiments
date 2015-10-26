@@ -2,7 +2,7 @@ NAME = test
 
 CFILES = main.c graphics.c audio.c events.c
 
-CFLAGS = -Wall -Wextra -Wfloat-equal -pedantic -std=c90
+CFLAGS = -Wall -Wextra -Wfloat-equal -pedantic -std=c99
 
 OFLAGS = -O3
 
@@ -23,7 +23,7 @@ linux : $(CFILES)
 	gcc $(CFILES) -o $(NAME) $(CFLAGS) $(linuxGTK) $(linuxLIBS)
 
 mac : $(CFILES)
-	gcc $(CFILES) -o $(NAME) $(CFLAGS) $(macGTK) $(macLIBS) $(macFRAMEWORKS) $(macINCLUDES)
+	gcc $(CFILES) -o $(NAME) $(CFLAGS) $(macGTK) $(macFRAMEWORKS) $(macINCLUDES)
 
 run: $(NAME)
 	./$(NAME)
