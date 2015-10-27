@@ -7,10 +7,9 @@ For Linux:
                  rather than changing this one.
 
 For MacOS:
-  make mac <- I doubt this will work. Please change it to make it work.
-              There are also ifdefs in audio.c that will need to be corrected.
-              We may need to add an ifdef to graphics.c for the gtk library.
-              Feel free!
+  make mac <- This should work. If you haven’t got GTK installed yet, downloading
+		Homebrew and then doing ‘brew install gtk+3’ in Terminal is the most
+		pain-free way to go.
 
 For Windows:
   make win <- As above. I doubt this will work. Please change it to make it work.
