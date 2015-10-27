@@ -1,4 +1,5 @@
 #include <gtk/gtk.h>
+#include <glib.h>
 
 #include "graphics.h"
 #include "events.h"
@@ -25,9 +26,12 @@ void graphics_init(void){
 void attachFunctions(GtkBuilder *builder){
   GObject *window;
   GObject *button;
+  guint timeoutID;
 
   window = gtk_builder_get_object (builder, "window");
   g_signal_connect (window, "destroy", G_CALLBACK (quitting), NULL);
+
+  timeoutID = g_timeout_add(NUM_MS, events_mainLoop, NULL);
 
   button = gtk_builder_get_object (builder, "button1");
   g_signal_connect (button, "clicked", G_CALLBACK (drum1), NULL);
