@@ -3,7 +3,12 @@
 	#include <SDL2_mixer/SDL_mixer.h>
 #elif __LINUX__
 	#include <SDL2/SDL_mixer.h>
+#elif _WIN32
+  #include <SDL2/SDL_mixer.h>
+#elif _WIN64
+  #include <SDL2/SDL_mixer.h>
 #endif
+#include <stdio.h>
 #include <stdbool.h>
 
 void graphics_init(void);
@@ -11,7 +16,7 @@ void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2);
 void audio_init(void);
 Uint32 callbackfunc(Uint32 interval, void* param);
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
 	Mix_Chunk* sample = NULL;
 	Mix_Chunk* sample2 = NULL;
@@ -48,7 +53,7 @@ int main(int argc, char const *argv[])
 			/* If a key press is detected */
 			if (event.type == SDL_KEYDOWN)
 			{
-				/* And it's the 'A' key (denoted by SDLK_a), then create a new timer 
+				/* And it's the 'A' key (denoted by SDLK_a), then create a new timer
 					that calls 'callbackfunc' every 500ms */
 				if (event.key.keysym.sym == SDLK_a)
 				{
@@ -69,15 +74,15 @@ int main(int argc, char const *argv[])
 }
 
 /* Tom's function, same as in the SDL Intro file */
-void graphics_init(void) 
+void graphics_init(void)
 {
 	SDL_Window *window = NULL;
 
-	window = SDL_CreateWindow("Testing", 
+	window = SDL_CreateWindow("Testing",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
-		800, 
-		600, 
+		800,
+		600,
 		0);
 
 	// SDL_Delay(2000);
