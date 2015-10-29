@@ -1,5 +1,9 @@
 #include <SDL2/SDL.h>
-#include <SDL2_mixer/SDL_mixer.h>
+#ifdef __APPLE__
+	#include <SDL2_mixer/SDL_mixer.h>
+#elif __LINUX__
+	#include <SDL2/SDL_mixer.h>
+#endif
 #include <stdbool.h>
 
 void graphics_init(void);
@@ -14,6 +18,8 @@ int main(int argc, char const *argv[])
 	_Bool quit = false; /* Global quit flag */
 	SDL_Event event;
 	SDL_TimerID timer;
+
+	printf("a is BD and f is clap\n");
 
 	/* Initialize SDL, then create a window, then initialize audio. Finally, load
 		the WAV file into the program from disk */

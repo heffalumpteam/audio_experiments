@@ -19,6 +19,8 @@ int main(int argc, char const *argv[])
 	SDL_Event event;
 	SDL_TimerID timer;
 
+	printf("a is BD and f is clap\n");
+
 	/* Initialize SDL, then create a window, then initialize audio. Finally, load
 		the WAV file into the program from disk */
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) < 0)
