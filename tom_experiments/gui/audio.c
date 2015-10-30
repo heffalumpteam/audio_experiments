@@ -14,6 +14,7 @@
 #define BUFFSIZE 2048
 
 Mix_Chunk *drum1_sound = NULL;
+Mix_Chunk *clap1_sound = NULL;
 
 void audio_init(void){
 	SDL_Init(SDL_INIT_AUDIO);
@@ -22,20 +23,31 @@ void audio_init(void){
     fprintf(stderr, "SDL_mixer Error: %s\n", Mix_GetError() );
   }
   drum1_sound = Mix_LoadWAV("FatkickVES2023.wav");
+  clap1_sound = Mix_LoadWAV("MUB1Clap004.wav");
   if(drum1_sound == NULL){
     fprintf(stderr, "Drums failed %s\n", Mix_GetError());
+  }
+  if(clap1_sound == NULL){
+    fprintf(stderr, "Clap failed %s\n", Mix_GetError());
   }
 }
 
 void audio_close(void){
   Mix_FreeChunk(drum1_sound);
+  Mix_FreeChunk(clap1_sound);
 
   drum1_sound = NULL;
+
+  clap1_sound = NULL;
 
   Mix_Quit();
 	SDL_Quit();
 }
 
-void audio_play(void){
+void audio_play1(void){
   Mix_PlayChannel( -1, drum1_sound, 0 ); /* (channel -1 = dont care, sound, times to repeat)*/
+}
+
+void audio_play2(void){
+  Mix_PlayChannel( -1, clap1_sound, 0 );
 }

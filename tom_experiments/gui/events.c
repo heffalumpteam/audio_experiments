@@ -13,7 +13,11 @@ gboolean events_mainLoop(gpointer user_data){
 }
 
 void drum1(void){
-  audio_play();
+  audio_play1();
+}
+
+void clap1(void){
+  audio_play2();
 }
 
 void quitting(void){

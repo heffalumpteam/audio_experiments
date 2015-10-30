@@ -25,7 +25,8 @@ void graphics_init(void){
 
 void attachFunctions(GtkBuilder *builder){
   GObject *window;
-  GObject *button;
+  GObject *button1;
+  GObject *button2;
   guint timeoutID;
 
   window = gtk_builder_get_object (builder, "window");
@@ -33,8 +34,11 @@ void attachFunctions(GtkBuilder *builder){
 
   timeoutID = g_timeout_add(NUM_MS, events_mainLoop, NULL);
 
-  button = gtk_builder_get_object (builder, "button1");
-  g_signal_connect (button, "clicked", G_CALLBACK (drum1), NULL);
+  button1 = gtk_builder_get_object (builder, "button1");
+  g_signal_connect (button1, "clicked", G_CALLBACK (drum1), NULL);
+
+  button2 = gtk_builder_get_object (builder, "button2");
+  g_signal_connect (button2, "clicked", G_CALLBACK (clap1), NULL);
 }
 
 void graphics_close(void){
