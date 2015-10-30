@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <stdio.h>
 #include "def.h"
 #include "audio.h"
 

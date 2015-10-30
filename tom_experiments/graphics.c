@@ -3,6 +3,10 @@
 	#include <SDL2_image/SDL_image.h>
 #elif __LINUX__
 	#include <SDL2/SDL_image.h>
+#elif _WIN32
+  #include <SDL2/SDL_image.h>
+#elif _WIN64
+  #include <SDL_image.h>
 #endif
 
 
