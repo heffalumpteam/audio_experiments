@@ -6,6 +6,10 @@
 	#include <SDL2/SDL_mixer.h>
 #elif __unix__
 	#include <SDL2/SDL_mixer.h>
+#elif _WIN32
+  #include <SDL2/SDL_mixer.h>
+#elif _WIN64
+  #include <SDL_mixer.h>
 #endif
 /*http://stackoverflow.com/questions/5919996/how-to-detect-reliably-mac-os-x-ios-linux-windows-in-c-preprocessor*/
 
