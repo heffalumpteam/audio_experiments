@@ -1,4 +1,4 @@
-#define NUM_MS 20
+#define NUM_MS 500
 
 gboolean events_mainLoop(gpointer user_data);
 void drum1(void);
