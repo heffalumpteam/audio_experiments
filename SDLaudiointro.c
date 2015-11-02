@@ -121,7 +121,7 @@ void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2, Mix_Chunk** sample3)
 		printf("Failed to load sample! Error: %s\n", Mix_GetError());
 	}
 
-	*sample3 = Mix_LoadWAV("WAVs/1barkick2.wav");
+	*sample3 = Mix_LoadWAV("WAVs/1barkick.wav");
 	if (*sample3 == NULL)
 	{
 		printf("Failed to load sample! Error: %s\n", Mix_GetError());
