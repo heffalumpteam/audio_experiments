@@ -12,7 +12,7 @@
 #include <stdbool.h>
 
 void graphics_init(void);
-void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2);
+void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2, Mix_Chunk** sample3);
 void audio_init(void);
 Uint32 callbackfunc(Uint32 interval, void* param);
 
@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 {
 	Mix_Chunk* sample = NULL;
 	Mix_Chunk* sample2 = NULL;
+	Mix_Chunk* sample3 = NULL;
 	_Bool quit = false; /* Global quit flag */
 	SDL_Event event;
 	SDL_TimerID timer;
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
 	}
 	graphics_init();
 	audio_init();
-	loadMedia(&sample, &sample2);
+	loadMedia(&sample, &sample2, &sample3);
 
 
 	/* Main loop */
@@ -63,6 +64,11 @@ int main(int argc, char *argv[])
 				if (event.key.keysym.sym == SDLK_f)
 				{
 					SDL_TimerID timer2 = SDL_AddTimer(500, callbackfunc, sample2);
+				}
+
+				if (event.key.keysym.sym == SDLK_t)
+				{
+					Mix_PlayChannel(-1, sample3, -1);
 				}
 			}
 		}
@@ -101,7 +107,7 @@ void audio_init(void)
 }
 
 /* Loads the two samples into memory, each sample returns error if it fails to load */
-void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2)
+void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2, Mix_Chunk** sample3)
 {
 	*sample = Mix_LoadWAV("WAVs/FatkickVES2023.wav");
 	if (*sample == NULL)
@@ -111,6 +117,12 @@ void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2)
 
 	*sample2 = Mix_LoadWAV("WAVs/MUB1Clap004.wav");
 	if (*sample2 == NULL)
+	{
+		printf("Failed to load sample! Error: %s\n", Mix_GetError());
+	}
+
+	*sample3 = Mix_LoadWAV("WAVs/1barkick2.wav");
+	if (*sample3 == NULL)
 	{
 		printf("Failed to load sample! Error: %s\n", Mix_GetError());
 	}
