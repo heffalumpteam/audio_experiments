@@ -7,7 +7,7 @@ linuxLIBS = -lm -lSDL2 -lSDL2_image -lSDL2_mixer
 macINCLUDES = -I/Library/Frameworks/SDL2.framework/Headers -I/Library/Frameworks/SDL2_mixer.framework/Headers
 macFRAMEWORKS = -F/Library/Frameworks -framework SDL2 -framework SDL2_mixer
 
-winINCLUDES = -lm -lmingw32 -mwindows -lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer
+winINCLUDES = -lm -lmingw32 -lSDL2main -lSDL2 -mwindows -lSDL2_image -lSDL2_mixer
 
 CFILES = SDLaudiointro.c
 
