@@ -1,4 +1,7 @@
+#include <stdio.h>
+#include <stdbool.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_timer.h>
 #ifdef __APPLE__
 	#include <SDL2_mixer/SDL_mixer.h>
 #elif __LINUX__
@@ -6,13 +9,11 @@
 #elif _WIN32
   #include <SDL2/SDL_mixer.h>
 #elif _WIN64
-  #include <SDL2/SDL_mixer.h>
+  #include <SDL_mixer.h>
 #endif
-#include <stdio.h>
-#include <stdbool.h>
 
 void graphics_init(void);
-void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2, Mix_Chunk** sample3);
+void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2);
 void audio_init(void);
 Uint32 callbackfunc(Uint32 interval, void* param);
 
@@ -35,7 +36,7 @@ int main(int argc, char *argv[])
 	}
 	graphics_init();
 	audio_init();
-	loadMedia(&sample, &sample2, &sample3);
+	loadMedia(&sample, &sample2);
 
 
 	/* Main loop */
@@ -107,7 +108,7 @@ void audio_init(void)
 }
 
 /* Loads the two samples into memory, each sample returns error if it fails to load */
-void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2, Mix_Chunk** sample3)
+void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2)
 {
 	*sample = Mix_LoadWAV("WAVs/FatkickVES2023.wav");
 	if (*sample == NULL)
@@ -121,11 +122,7 @@ void loadMedia(Mix_Chunk** sample, Mix_Chunk** sample2, Mix_Chunk** sample3)
 		printf("Failed to load sample! Error: %s\n", Mix_GetError());
 	}
 
-	*sample3 = Mix_LoadWAV("WAVs/1barkick.wav");
-	if (*sample3 == NULL)
-	{
-		printf("Failed to load sample! Error: %s\n", Mix_GetError());
-	}
+
 }
 
 /* The function that the timer will call every x milliseconds. This just plays the sample once */
